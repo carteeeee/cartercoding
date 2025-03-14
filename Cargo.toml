@@ -1,0 +1,29 @@
+[package]
+name = "cartercoding"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# wasm things
+leptos = { version = "0.7.7", features = ["nightly", "csr", "tracing"] }
+web-sys = { version = "0.3.77", features = ["File", "FileList", "Blob", "Window"] }
+wasm-bindgen-futures = "0.4.50"
+gloo-timers = "0.3.0"
+
+# logging things
+console_error_panic_hook = "0.1.7"
+console_log = "1.0.0"
+log = "0.4.26"
+
+# important deps
+libsm64 = { git = "https://github.com/carteeeee/libsm64-rust-web", version = "0.2.0" }
+three-d = "0.18.2"
+instant = "0.1.13"
+three-d-asset = { version = "0.9.2", features = ["gltf", "jpeg", "http"] }
+reqwest = "0.12.12"
+
+[profile.release]
+opt-level = 'z'
+lto = true
+codegen-units = 1
+panic = "abort"
